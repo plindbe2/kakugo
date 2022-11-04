@@ -55,7 +55,7 @@ class QuizTestFragment : Fragment(), TestFragment {
 
         val questionMinSize =
                 when (testType) {
-                    TestType.WORD_TO_READING, TestType.WORD_TO_MEANING, TestType.KANJI_TO_READING, TestType.KANJI_TO_MEANING -> 50
+                    TestType.WORD_TO_READING, TestType.WORD_TO_MEANING, TestType.READING_TO_MEANING, TestType.MEANING_TO_READING, TestType.KANJI_TO_READING, TestType.KANJI_TO_MEANING -> 50
                     TestType.READING_TO_WORD, TestType.MEANING_TO_WORD, TestType.READING_TO_KANJI, TestType.MEANING_TO_KANJI -> 10
                     TestType.HIRAGANA_TO_ROMAJI, TestType.ROMAJI_TO_HIRAGANA, TestType.KATAKANA_TO_ROMAJI, TestType.ROMAJI_TO_KATAKANA -> 50
                     else -> throw RuntimeException("unsupported test type for TestActivity")
@@ -80,7 +80,7 @@ class QuizTestFragment : Fragment(), TestFragment {
                         scrollView = this
                         verticalLayout {
                             when (testType) {
-                                TestType.WORD_TO_READING, TestType.WORD_TO_MEANING, TestType.KANJI_TO_READING, TestType.KANJI_TO_MEANING -> {
+                                TestType.WORD_TO_READING, TestType.WORD_TO_MEANING, TestType.READING_TO_MEANING, TestType.MEANING_TO_READING, TestType.KANJI_TO_READING, TestType.KANJI_TO_MEANING -> {
                                     repeat(answerCount) {
                                         val answerView =
                                                 if (singleButtonMode) {

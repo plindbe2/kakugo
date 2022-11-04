@@ -40,8 +40,18 @@ class VocabularyMenuActivity : BaseActivity() {
                         }.lparams(width = matchParent, height = wrapContent) {
                             margin = dip(4)
                         }
+                        button(R.string.reading_to_meaning) {
+                            setOnClickListener { startTest(this@VocabularyMenuActivity, TestType.READING_TO_MEANING) }
+                        }.lparams(width = matchParent, height = wrapContent) {
+                            margin = dip(4)
+                        }
                         button(R.string.meaning_to_word) {
                             setOnClickListener { startTest(this@VocabularyMenuActivity, TestType.MEANING_TO_WORD) }
+                        }.lparams(width = matchParent, height = wrapContent) {
+                            margin = dip(4)
+                        }
+                        button(R.string.meaning_to_reading) {
+                            setOnClickListener { startTest(this@VocabularyMenuActivity, TestType.MEANING_TO_READING) }
                         }.lparams(width = matchParent, height = wrapContent) {
                             margin = dip(4)
                         }

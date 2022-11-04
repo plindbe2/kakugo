@@ -40,6 +40,8 @@
     <string name="reading_to_word">Reading to word (ひので→日の出)</string>
     <string name="word_to_meaning">Word to meaning (日の出→sunrise)</string>
     <string name="meaning_to_word">Meaning to word (sunrise→日の出)</string>
+    <string name="reading_to_meaning">Reading to meaning (ひので→sunrise)</string>
+    <string name="meaning_to_reading">Meaning to reading (sunrise→ひので)</string>
 
     <string name="hiragana_to_romaji_title">Hiragana to romaji quiz</string>
     <string name="romaji_to_hiragana_title">Romaji to hiragana</string>

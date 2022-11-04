@@ -257,4 +257,6 @@ fun TestType.toName(): Int =
             TestType.WORD_TO_MEANING -> R.string.word_to_meaning_title
             TestType.READING_TO_WORD -> R.string.reading_to_word_title
             TestType.MEANING_TO_WORD -> R.string.meaning_to_word_title
+            TestType.READING_TO_MEANING -> R.string.reading_to_meaning
+            TestType.MEANING_TO_READING -> R.string.meaning_to_reading
         }

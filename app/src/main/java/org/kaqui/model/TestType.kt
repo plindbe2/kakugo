@@ -25,7 +25,10 @@ enum class TestType(val value: Int) {
 
     KANJI_DRAWING(17),
 
-    KANJI_COMPOSITION(18);
+    KANJI_COMPOSITION(18),
+
+    READING_TO_MEANING(19),
+    MEANING_TO_READING(20);
 
     companion object {
         private val map = values().associateBy(TestType::value)

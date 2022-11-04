@@ -72,7 +72,7 @@ fun getItemType(testType: TestType) =
             TestType.KANJI_DRAWING, TestType.KANJI_COMPOSITION,
             -> ItemType.Kanji
 
-            TestType.WORD_TO_READING, TestType.READING_TO_WORD, TestType.WORD_TO_MEANING, TestType.MEANING_TO_WORD
+            TestType.WORD_TO_READING, TestType.READING_TO_WORD, TestType.WORD_TO_MEANING, TestType.MEANING_TO_WORD, TestType.MEANING_TO_READING, TestType.READING_TO_MEANING
             -> ItemType.Word
         }
 
@@ -97,7 +97,7 @@ fun getKnowledgeType(testType: TestType) =
             TestType.HIRAGANA_DRAWING, TestType.KATAKANA_DRAWING, TestType.KANJI_DRAWING, TestType.KANJI_COMPOSITION -> KnowledgeType.Strokes
 
             TestType.KANJI_TO_MEANING, TestType.MEANING_TO_KANJI,
-            TestType.WORD_TO_MEANING, TestType.MEANING_TO_WORD -> KnowledgeType.Meaning
+            TestType.WORD_TO_MEANING, TestType.MEANING_TO_WORD, TestType.READING_TO_MEANING, TestType.MEANING_TO_READING -> KnowledgeType.Meaning
         }
 
 fun itemAndKnowledgeTypeToTestType(itemType: ItemType, knowledgeType: KnowledgeType): List<TestType> =
@@ -145,8 +145,8 @@ fun Item.getQuestionText(testType: TestType): String =
             TestType.MEANING_TO_KANJI -> (contents as Kanji).meaningsText
 
             TestType.WORD_TO_READING, TestType.WORD_TO_MEANING -> this.text
-            TestType.READING_TO_WORD -> (contents as Word).reading
-            TestType.MEANING_TO_WORD -> (contents as Word).meaningsText
+            TestType.READING_TO_WORD, TestType.READING_TO_MEANING -> (contents as Word).reading
+            TestType.MEANING_TO_WORD, TestType.MEANING_TO_READING -> (contents as Word).meaningsText
 
             TestType.KANJI_DRAWING, TestType.KANJI_COMPOSITION -> "${(contents as Kanji).readingsText}\n${(contents as Kanji).meaningsText}"
         }
@@ -160,8 +160,8 @@ fun Item.getAnswerText(testType: TestType): String =
             TestType.KANJI_TO_MEANING -> (contents as Kanji).meaningsText
             TestType.READING_TO_KANJI, TestType.MEANING_TO_KANJI, TestType.KANJI_COMPOSITION -> (contents as Kanji).kanji
 
-            TestType.WORD_TO_READING -> (contents as Word).reading
-            TestType.WORD_TO_MEANING -> (contents as Word).meaningsText
+            TestType.WORD_TO_READING, TestType.MEANING_TO_READING -> (contents as Word).reading
+            TestType.WORD_TO_MEANING, TestType.READING_TO_MEANING -> (contents as Word).meaningsText
             TestType.READING_TO_WORD, TestType.MEANING_TO_WORD -> this.text
 
             TestType.KANJI_DRAWING, TestType.HIRAGANA_DRAWING, TestType.KATAKANA_DRAWING -> throw RuntimeException("No answer text for writing test")
